@@ -1,34 +1,32 @@
 using System;
+using System.Runtime;
 
-namespace SistemaMedia
-//É o mesmo nome do projeto/pasta
+namespace SISTEMADEALUNO
 {
     public class Aluno
     {
         public string Nome { get; set; }
         public double Nota1 { get; set; }
+
         public double Nota2 { get; set; }
-        //Propriedades da classe
 
         public Aluno(string nome, double nota1, double nota2)
         {
             Nome = nome;
             Nota1 = nota1;
             Nota2 = nota2;
-            //Construtor de classe
+        }
+        public double CalcularMedia()
+        {
+            return (Nota1 + Nota2) / 2;
         }
 
-        public double CalculoMedia()
-        {
-            return (Nota1 + Nota2) /2;
-            //Método de cálculo da média
-        }
 
         public void ExibirResultado()
         {
-            double media = CalculoMedia();
-            Console.WriteLine($"Aluno: {Nome}");
-            Console.WriteLine($"Media: {media}");
+            double media = CalcularMedia();
+            Console.WriteLine($"\nAluno: {Nome}");
+            Console.WriteLine($"Média: {media}");
 
             if (media >= 6.0)
             {
@@ -37,9 +35,8 @@ namespace SistemaMedia
             else
             {
                 Console.WriteLine("Status: Reprovado");
-                //Método para exibir o resultado
             }
+
         }
     }
-
 }
